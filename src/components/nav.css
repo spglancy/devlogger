@@ -57,3 +57,9 @@ nav input {
   font-size: 1em;
   color: var(--main-text);
 }
+
+.navCorrection {
+  width: 100vw;
+  height: 8vh;
+  display: block;
+}

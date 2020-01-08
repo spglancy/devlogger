@@ -1,0 +1,50 @@
+.companyHeader {
+  width: 80vw;
+  height: 35vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.companyHeader>img {
+  width: 15vw;
+  height: 15vw;
+  border: 1px solid black;
+}
+
+.companyInfo {
+  width: 30vw;
+  height: 60%;
+}
+
+.companyInfo>h1 {
+  font-size: 2.8em;
+  text-transform: capitalize;
+}
+
+.companyHeader>div>span {
+  width: max-content;
+  height: max-content;
+  padding: 10px;
+  background: var(--main-accent);
+  font-size: 1.2em;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid var(--main-accent);
+  color: var(--inverse-text);
+}
+
+.companyHeader>div>span:hover {
+  background: var(--main-background);
+  color: var(--main-accent);
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}

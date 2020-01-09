@@ -14,7 +14,7 @@ class Company extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:4000/company/${this.state.companyId}`)
+    fetch(`https://devlogger-intensive.herokuapp.com/company/${this.state.companyId}`)
       .then(res => res.json())
       .then(company => {
         const { companyName, companyInfo, posts } = company

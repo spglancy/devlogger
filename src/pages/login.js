@@ -31,7 +31,7 @@ class Login extends Component {
 
     if (this.state.isCompany) {
       if (pwdMatch) {
-        fetch('http://localhost:4000/register', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, passwordConf, isCompany, companyName, companyInfo }) })
+        fetch('https://devlogger-intensive.herokuapp.com/register', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, passwordConf, isCompany, companyName, companyInfo }) })
           .then(res => res.json())
           .then(res => {
             console.log(res)
@@ -46,7 +46,7 @@ class Login extends Component {
     }
     else if (this.state.register) {
       if (pwdMatch) {
-        fetch('http://localhost:4000/register', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, passwordConf, isCompany }) })
+        fetch('https://devlogger-intensive.herokuapp.com/register', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, passwordConf, isCompany }) })
           .then(res => res.json())
           .then(res => {
             if (res.result === 'Success') {
@@ -58,7 +58,7 @@ class Login extends Component {
           })
       }
     } else {
-      fetch('http://localhost:4000/login', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) })
+      fetch('https://devlogger-intensive.herokuapp.com/login', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) })
         .then(res => res.json())
         .then(res => {
           if (res.result === 'Success') {

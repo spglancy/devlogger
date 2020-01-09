@@ -11,7 +11,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:4000/allposts')
+    fetch('https://devlogger-intensive.herokuapp.com/allposts')
       .then(res => res.json())
       .then(posts => {
         this.setState({

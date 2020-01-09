@@ -18,7 +18,7 @@ class Nav extends Component {
       token = jwt_decode(token)
       console.log(token)
       this.setState({ isAuthed: true })
-      fetch(`http://localhost:4000/company/${token.id}`)
+      fetch(`https://devlogger-intensive.herokuapp.com/company/${token.id}`)
         .then(res => res.json())
         .then(res => {
           if (res.isCompany) {

@@ -16,7 +16,7 @@ class NewPost extends Component {
   handlePost() {
     const token = jwt_decode(localStorage.getItem('dToken'))
     const { title, content } = this.state
-    fetch('http://localhost:4000/post/new', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, content, author: token.name, userId: token.id }) })
+    fetch('https://devlogger-intensive.herokuapp.com/post/new', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, content, author: token.name, userId: token.id }) })
       .then(res => {
         if (res.status === 200) {
           this.setState({ redirect: true })

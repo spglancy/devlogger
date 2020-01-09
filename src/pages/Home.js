@@ -11,12 +11,12 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    this.props.setAuth()
     fetch('https://devlogger-intensive.herokuapp.com/allposts')
       .then(res => res.json())
       .then(posts => {
         this.setState({
           posts: posts.map(post => {
-            console.log(post)
             return <Post key={post.title} content={post} />
           })
         })

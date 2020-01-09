@@ -16,6 +16,7 @@ class Home extends Component {
       .then(posts => {
         this.setState({
           posts: posts.map(post => {
+            console.log(post)
             return <Post key={post.title} content={post} />
           })
         })

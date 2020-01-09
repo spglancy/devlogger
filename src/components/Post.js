@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './post.css'
 
 
@@ -8,7 +9,7 @@ function Post(props) {
       <div>
         <div className='authorData'>
           <img src='#' alt='' />
-          <h3>{props.content.author}</h3>
+          <Link to={`/company/${props.content.userId}`}>{props.content.author}</Link>
         </div>
         <h2>{props.content.title}</h2>
       </div>

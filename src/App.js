@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Company from './pages/Company'
 import Login from './pages/login'
 import NewPost from './pages/newpost'
-import jwt_decode from 'jwt-decode'
 import './App.css';
 
 class App extends Component {

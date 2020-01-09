@@ -15,8 +15,8 @@ class Nav extends Component {
 
   componentDidMount() {
     let token = localStorage.getItem('dToken')
-    token = jwt_decode(token)
     if (token) {
+      token = jwt_decode(token)
       this.setState({ isAuthed: true })
       fetch(`https://devlogger-intensive.herokuapp.com/company/${token.id}`)
         .then(res => res.json())

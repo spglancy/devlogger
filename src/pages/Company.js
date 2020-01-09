@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Post from './Post'
+import Post from '../components/Post'
 import './company.css'
 
 class Company extends Component {

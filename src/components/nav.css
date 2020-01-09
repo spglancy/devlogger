@@ -37,7 +37,7 @@ nav>ul>li>a>div {
   background: var(--secondary-accent);
 }
 
-nav a:hover {
+nav>ul>li>a:hover {
   transition: 300ms;
   color: var(--secondary-accent);
 }
@@ -62,4 +62,8 @@ nav input {
   width: 100vw;
   height: 8vh;
   display: block;
+}
+
+nav>a {
+  color: var(--inverse-text);
 }

@@ -34,6 +34,7 @@ class Login extends Component {
         fetch('http://localhost:4000/register', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, passwordConf, isCompany, companyName, companyInfo }) })
           .then(res => res.json())
           .then(res => {
+            console.log(res)
             if (res.result === 'Success') {
               this.setState({ redirect: true })
               localStorage.setItem('dToken', res.token)
@@ -48,7 +49,6 @@ class Login extends Component {
         fetch('http://localhost:4000/register', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password, passwordConf, isCompany }) })
           .then(res => res.json())
           .then(res => {
-            console.log(res)
             if (res.result === 'Success') {
               this.setState({ redirect: true })
               localStorage.setItem('dToken', res.token)
@@ -61,7 +61,6 @@ class Login extends Component {
       fetch('http://localhost:4000/login', { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) })
         .then(res => res.json())
         .then(res => {
-          console.log(res)
           if (res.result === 'Success') {
             this.setState({ redirect: true })
             localStorage.setItem('dToken', res.token)
@@ -81,6 +80,13 @@ class Login extends Component {
           <h1>Welcome</h1>
           {this.state.isCompany ?
             <form onSubmit={e => this.handleSubmit(e)}>
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                onChange={e => this.setState({ email: e.target.value })}
+                value={this.state.email}
+              />
               <input
                 type="text"
                 name="companyName"
@@ -105,7 +111,7 @@ class Login extends Component {
               <textarea
                 type="text"
                 name="companyInfo"
-                placeholder="A bit about your Company"
+                placeholder="a bit about your Company"
                 onChange={e => this.setState({ companyInfo: e.target.value })}
                 value={this.state.companyInfo}
               />

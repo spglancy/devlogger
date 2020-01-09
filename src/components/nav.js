@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from 'react-router-dom'
+import jwt_decode from 'jwt-decode'
 import './nav.css'
 
 class Nav extends Component {
@@ -12,8 +13,18 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem('dToken')) {
+    let token = localStorage.getItem('dToken')
+    if (token) {
+      token = jwt_decode(token)
+      console.log(token)
       this.setState({ isAuthed: true })
+      fetch(`http://localhost:4000/company/${token.id}`)
+        .then(res => res.json())
+        .then(res => {
+          if (res.isCompany) {
+            this.setState({ post: true })
+          }
+        })
     }
   }
 
@@ -25,17 +36,17 @@ class Nav extends Component {
     return (
       <div className='navCorrection'>
         <nav>
-          <h2>Devlogger</h2>
+          <Link to='/'><h2>Devlogger</h2></Link>
           {this.state.isAuthed ?
             <ul id="menu">
-              <li><Link to='/'>Home<div></div></Link></li>
+              {this.state.post ? <li><Link to='/post/new'>New Post<div></div></Link></li> : null}
               <li><form onSubmit={e => this.search(e)}><input placeholder='Search' value={this.state.searchVal} onChange={e => this.setState({ searchVal: e.target.value })}></input></form></li>
               <li><Link to='/'>Following<div></div></Link></li>
-              <li><a onClick={() => { localStorage.removeItem('dToken'); this.setState({ isAuthed: false }) }}>Logout<div></div></a></li>
+              <li><Link to='/' onClick={() => { localStorage.removeItem('dToken'); this.setState({ isAuthed: false }) }}>Logout<div></div></Link></li>
             </ul>
             :
             <ul id="menu">
-              <li><Link to='/'>Home<div></div></Link></li>
+              {this.state.post ? <li><Link to='/post/new'>New Post<div></div></Link></li> : null}
               <li><form onSubmit={e => this.search(e)}><input placeholder='Search' value={this.state.searchVal} onChange={e => this.setState({ searchVal: e.target.value })}></input></form></li>
               <li><Link to='/'>Following<div></div></Link></li>
               <li><Link to='/register'>Sign Up<div></div></Link></li>

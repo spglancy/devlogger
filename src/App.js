@@ -4,6 +4,7 @@ import Nav from './components/nav'
 import Home from './pages/Home'
 import Company from './pages/Company'
 import Login from './pages/login'
+import NewPost from './pages/newpost'
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path='/company/:companyId' component={Company} />
           <Route path='/login' render={(props) => <Login {...props} register={false} />} />
           <Route path='/register' render={(props) => <Login {...props} register={true} />} />
+          <Route path='/post/new' component={NewPost} />
         </Switch>
       </div>
     )

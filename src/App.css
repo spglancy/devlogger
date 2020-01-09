@@ -16,6 +16,7 @@ button:focus,
 textarea:focus,
 a:focus {
   outline: none;
+  color: var(--secondary-text);
 }
 
 .mainContainer {
